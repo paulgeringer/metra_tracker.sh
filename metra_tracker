@@ -31,8 +31,16 @@ function get_json() {
 
 retrieved_json=$(get_json)
 
+function check_for_errors() {
+  if [ "$(echo "$retrieved_json" | jq ".train1" | jq "keys" | jq ".[0]" | strip_quotes)" = "error" ]
+  then
+    echo -e "${RED}There are no trains scheduled for the specified route currently.${NC}"
+    exit 1
+  fi
+}
+
 function get_train_hash_numbers() {
-  echo "$retrieved_json" | jq "keys" | jq '.[2:]' | jq '@sh' | strip_quotes
+  echo "$retrieved_json" | jq "keys" | jq ".[2:]" | jq "@sh" | strip_quotes
 }
 
 function get_train_designations() {
@@ -68,15 +76,12 @@ function arrival_time_update() {
 }
 
 function display() {
+  check_for_errors
   trains=$(get_train_hash_numbers)
-  if [ "$trains" = '[]' ]
-  then
-    echo -e "${RED}There are no trains scheduled for the specified route currently.${NC}"
-  fi
   for train in $trains
   do
     train_number=$train
-    if [ "$(is_late)" = 'true' ]
+    if [ "$(is_late)" = "true" ]
     then
       echo -e "${RED}This train is running late:${NC}"
     fi
