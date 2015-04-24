@@ -40,7 +40,7 @@ function check_for_errors() {
 }
 
 function get_train_hash_numbers() {
-  echo "$retrieved_json" | jq "keys" | jq ".[2:]" | jq "@sh" | strip_quotes
+  echo "$retrieved_json" | jq "keys" | jq ".[2:]" | jq "@sh" | strip_quotes | tr -s ' ' '\n' | sort -n -k1.6
 }
 
 function get_train_designations() {
