@@ -1,0 +1,305 @@
+TRAIN-LINE - BNSF
+
+KEY        - STATION
+---        - -------
+AURORA     - Aurora
+ROUTE59    - Route 59
+NAPERVILLE - Naperville
+LISLE      - Lisle
+BELMONT    - Belmont
+MAINST-DG  - Downers Grove Main Street
+FAIRVIEWDG - Fairview Avenue
+WESTMONT   - Westmont
+CLARNDNHIL - Clarendon Hills
+WHINSDALE  - West Hinsdale
+HINSDALE   - Hinsdale
+HIGHLANDS  - Highlands
+WESTSPRING - Western Springs
+STONEAVE   - LaGrange Stone Avenue
+LAGRANGE   - LaGrange Road
+CONGRESSPK - Congress Park
+BROOKFIELD - Brookfield
+HOLLYWOOD  - Hollywood
+RIVERSIDE  - Riverside
+HARLEM     - Harlem Ave.
+BERWYN     - Berwyn
+LAVERGNE   - LaVergne
+CICERO     - Cicero
+BNWESTERN  - Western Avenue
+HALSTED    - Halsted
+CUS        - Union Station
+------------------------------------------
+TRAIN-LINE - HC
+
+KEY        - STATION
+---        - -------
+JOLIET     - Joliet
+LOCKPORT   - Lockport
+LEMONT     - Lemont
+WILLOWSPRN - Willow Springs
+SUMMIT     - Summit
+CUS        - Union Station
+------------------------------------------
+TRAIN-LINE - MD-N
+
+KEY        - STATION
+---        - -------
+FOXLAKE    - Fox Lake
+INGLESIDE  - Ingleside
+LONGLAKE   - Long Lake
+ROUNDLAKE  - Round Lake
+GRAYSLAKE  - Grayslake
+PRAIRIEXNG - Prairie Crossing/Libertyville
+LIBERTYVIL - Libertyville
+LAKEFRST   - Lake Forest
+DEERFIELD  - Deerfield
+LAKECOOKRD - Lake Cook Road
+NBROOK     - Northbrook
+NGLENVIEW  - Glen of North Glenview
+GLENVIEW   - Glenview
+GOLF       - Golf
+MORTONGRV  - Morton Grove
+EDGEBROOK  - Edgebrook
+FORESTGLEN - Forest Glen
+MAYFAIR    - Mayfair
+GRAYLAND   - Grayland
+HEALY      - Healy
+WESTERNAVE - Western Avenue
+CUS        - Union Station
+------------------------------------------
+TRAIN-LINE - MD-W
+
+KEY        - STATION
+---        - -------
+BIGTIMBER  - Big Timber Road
+ELGIN      - Elgin
+NATIONALS  - National Street
+BARTLETT   - Bartlett
+HANOVERP   - Hanover Park
+SCHAUM     - Schaumburg
+ROSELLE    - Roselle
+MEDINAH    - Medinah
+ITASCA     - Itasca
+WOODDALE   - Wood Dale
+BENSENVIL  - Bensenville
+MANNHEIM   - Mannheim
+FRANKLIN   - Franklin Park
+RIVERGROVE - River Grove
+ELMWOODPK  - Elmwood Park
+MONTCLARE  - Mont Clare
+MARS       - Mars
+GALEWOOD   - Galewood
+HANSONPK   - Hanson Park
+GRAND-CIC  - Grand / Cicero
+WESTERNAVE - Western Avenue
+CUS        - Union Station
+------------------------------------------
+TRAIN-LINE - ME
+
+KEY        - STATION
+---        - -------
+BLUEISLAND - Blue Island
+BURROAK    - Burr Oak
+ASHLAND    - Ashland
+RACINE     - Racine
+WPULLMAN   - West Pullman
+STEWARTRID - Stewart Ridge
+STATEST    - State Street
+93RD-SC    -  93rd St. (South Chicago)
+87TH-SC    - 87th St. (South Chicago)
+83RD-SC    - 83rd St. (South Chicago)
+79TH-SC    - 79th Street (Cheltenham)
+WINDSORPK  - Windsor Park
+SOUTHSHORE - South Shore
+BRYNMAWR   - Bryn Mawr
+STONYISLND - Stony Island
+UNIVERSITY - University Park
+RICHTON    - Richton Park
+MATTESON   - Matteson
+211TH-UP   - 211th Street (Lincoln Highway)
+OLYMPIA    - Olympia Fields
+FLOSSMOOR  - Flossmoor
+HOMEWOOD   - Homewood
+CALUMET    - Calumet
+HAZELCREST - Hazel Crest
+HARVEY     - Harvey
+147TH-UP   - 147th Street (Sibley Boulevard)
+IVANHOE    - Ivanhoe
+RIVERDALE  - Riverdale
+KENSINGTN  - Kensington / 115th Street
+111TH-UP   - 111th Street (Pullman)
+107TH-UP   - 107th Street
+103RD-UP   - 103rd Street (Rosemoor)
+95TH-UP    - 95th St., Chicago State Univ.
+91ST-UP    - 91st Street (Chesterfield)
+87TH-UP    - 87th Street (Woodruff)
+83RD-UP    - 83rd Street (Avalon Park)
+79TH-UP    - 79th St., Chatham
+75TH-UP    - 75th Street (Grand Crossing)
+63RD-UP    - 63rd Street
+59TH-UP    - 59th St., Univ. of Chicago
+55-56-57TH - 55th - 56th - 57th Street
+51ST-53RD  - 51st / 53rd Street (Hyde Park)
+47TH-UP    - 47th Street (Kenwood)
+27TH-UP    - 27th Street
+MCCORMICK  - McCormick Place
+18TH-UP    - 18th Street
+MUSEUM     - Museum Campus / 11th Street
+VANBUREN   - Van Buren Street
+MILLENNIUM - Millennium Station
+------------------------------------------
+TRAIN-LINE - NCS
+
+KEY        - STATION
+---        - -------
+ANTIOCH    - Antioch
+LAKEVILLA  - Lake Villa
+ROUNDLKBCH - Round Lake Beach
+NCSGRAYSLK - Washington St. / Grayslake
+PRAIRCROSS - Prairie Crossing / Libertyville
+MUNDELEIN  - Mundelein
+VERNON     - Vernon Hills
+PRAIRIEVW  - Prairie View
+BUFFGROVE  - Buffalo Grove
+WHEELING   - Wheeling
+PROSPECTHG - Prospect Heights
+OHARE      - O'Hare Transfer
+ROSEMONT   - Rosemont
+SCHILLERPK - Schiller Park
+FRANKLINPK - Belmont Ave / Franklin Park
+RIVERGROVE - River Grove
+WESTERNAVE - Western Avenue
+CUS        - Union Station
+------------------------------------------
+TRAIN-LINE - RI
+
+KEY        - STATION
+---        - -------
+JOLIET     - Joliet
+NEWLENOX   - New Lenox
+MOKENA     - Mokena
+HICKORYCRK - Hickory Creek
+TINLEY80TH - Tinley Park - 80th Ave.
+TINLEYPARK - Tinley Park
+OAKFOREST  - Oak Forest
+MIDLOTHIAN - Midlothian
+ROBBINS    - Robbins
+VERMONT    - Blue Island - Vermont St.
+PRAIRIEST  - Prairie St.
+123RD-BEV  - 123rd St.
+119TH-BEV  - 119th Street
+115TH-BEV  - Morgan Park - 115th Street
+111TH-BEV  - Morgan Park - 111th Street
+107TH-BEV  - Beverly Hills - 107th Street
+103RD-BEV  - Beverly Hills - 103rd Street
+99TH-BEV   - Beverly Hills - 99th Street
+95TH-BEV   - Beverly Hills - 95th Street
+91ST-BEV   - Beverly Hills - 91st Street
+BRAINERD   - Brainerd
+WASHHGTS   - 103rd St., Washington Hts
+LONGWOOD   - 95th St. - Longwood
+GRESHAM    - Gresham
+35TH       - 35th St - Lou Jones
+LSS        - LaSalle Street Station
+------------------------------------------
+TRAIN-LINE - SWS
+
+KEY        - STATION
+---        - -------
+MANHATTAN  - Manhattan
+LARAWAY    - New Lenox Laraway Road
+179TH-SWS  - Orland Park 179th Street
+153RD-SWS  - Orland Park 153rd Street
+143RD-SWS  - Orland Park 143rd Street
+PALOSPARK  - Palos Park
+PALOSHTS   - Palos Heights
+WORTH      - Worth
+CHICRIDGE  - Chicago Ridge
+OAKLAWN    - Oak Lawn
+ASHBURN    - Ashburn
+WRIGHTWOOD - Wrightwood
+CUS        - Union Station
+------------------------------------------
+TRAIN-LINE - UP-N
+
+KEY        - STATION
+---        - -------
+KENOSHA    - Kenosha
+WINTHROP   - Winthrop Harbor
+ZION       - Zion
+WAUKEGAN   - Waukegan
+NCHICAGO   - North Chicago
+GRTLAKES   - Great Lakes
+LAKEBLUFF  - Lake Bluff
+LKFOREST   - Lake Forest
+FTSHERIDAN - Fort Sheridan
+HIGHWOOD   - Highwood
+HIGHLANDPK - Highland Park
+RAVINIA    - Ravinia
+RAVINIAPK  - Ravinia Park
+BRAESIDE   - Braeside
+GLENCOE    - Glencoe
+HUBARDWOOD - Hubbard Woods
+WINNETKA   - Winnetka
+INDIANHILL - Indian Hill
+KENILWORTH - Kenilworth
+WILMETTE   - Wilmette
+CENTRALST  - Evanston Central Street
+EVANSTON   - Evanston Davis Street
+MAINST     - Evanston Main Street
+ROGERPK    - Rogers Park
+RAVENSWOOD - Ravenswood
+CLYBOURN   - Clybourn
+OTC        - Ogilvie Transportation Center
+------------------------------------------
+TRAIN-LINE - UP-NW
+
+KEY        - STATION
+---        - -------
+HARVARD    - Harvard
+MCHENRY    - McHenry
+WOODSTOCK  - Woodstock
+CRYSTAL    - Crystal Lake
+PINGREE    - Pingree Road
+CARY       - Cary
+FOXRG      - Fox River Grove
+BARRINGTON - Barrington
+PALATINE   - Palatine
+ARLINGTNPK - Arlington Park (Race Track)
+ARLINGTNHT - Arlington Heights
+MTPROSPECT - Mount Prospect
+CUMBERLAND - Cumberland
+DESPLAINES - Des Plaines
+DEEROAD    - Dee Road
+PARKRIDGE  - Park Ridge
+EDISONPK   - Edison Park
+NORWOODP   - Norwood Park
+GLADSTONEP - Gladstone Park
+JEFFERSONP - Jefferson Park
+IRVINGPK   - Irving Park
+CLYBOURN   - Clybourn
+OTC        - Ogilvie Transportation Center
+------------------------------------------
+TRAIN-LINE - UP-W
+
+KEY        - STATION
+---        - -------
+ELBURN     - Elburn
+LAFOX      - La Fox
+GENEVA     - Geneva
+WCHICAGO   - West Chicago
+WINFIELD   - Winfield
+WHEATON    - Wheaton
+COLLEGEAVE - College Avenue
+GLENELLYN  - Glen Ellyn
+LOMBARD    - Lombard
+VILLAPARK  - Villa Park
+ELMHURST   - Elmhurst
+BERKELEY   - Berkeley
+BELLWOOD   - Bellwood
+MELROSEPK  - Melrose Park
+MAYWOOD    - Maywood
+RIVRFOREST - River Forest
+OAKPARK    - Oak Park
+KEDZIE     - Kedzie
+OTC        - Ogilvie Transportation Center
