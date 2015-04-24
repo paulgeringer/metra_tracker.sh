@@ -1,0 +1,82 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+CYAN='\033[1;36m'
+RED='\033[1;31m'
+NC='\033[0m'
+
+line=$1
+departure=$2
+destination=$3
+if [ "$4" ]
+then
+  train_number=$4
+else
+  train_number=1
+fi
+
+function url() {
+  echo "http://metrarail.com/content/metra/en/home/jcr:content/trainTracker.get_train_data.json?line=$line&origin=$departure&destination=$destination"
+}
+
+function get_json() {
+  curl -s "$(url)" | tr -d "\n"
+}
+
+retrieved_json=$(get_json)
+
+function strip_quotes() {
+  sed 's/"//g'
+}
+
+function is_late() {
+ echo "$retrieved_json" | jq ".train$train_number.hasDelay"
+}
+
+function departure_meridian() {
+  echo "$retrieved_json" | jq ".train$train_number.schDepartInTheAM" | strip_quotes
+}
+
+function departure_time() {
+  echo "$retrieved_json" | jq ".train$train_number.scheduled_dpt_time" | strip_quotes
+}
+
+function departure_time_update() {
+  echo "$retrieved_json" | jq ".train$train_number.scheduled_dpt_time_note" | strip_quotes
+}
+
+function arrival_meridian() {
+  echo "$retrieved_json" | jq ".train$train_number.schArriveInTheAM" | strip_quotes
+}
+
+function arrival_time() {
+  echo "$retrieved_json" | jq ".train$train_number.scheduled_arv_time" | strip_quotes
+}
+
+function arrival_time_update() {
+  echo "$retrieved_json" | jq ".train$train_number.scheduled_arv_time_note" | strip_quotes
+}
+
+function display() {
+  if [ "$(departure_time)" = "$(departure_time_update)" ];
+  then
+    echo -en "Departing at: ${CYAN}$(departure_time) $(departure_meridian)${NC}"
+  else
+    echo -en "Departing at: ${CYAN}$(departure_time_update) $(departure_meridian)${NC}"
+  fi
+  echo -en " From: ${GREEN}$departure${NC} "
+  if [ "$(arrival_time)" = "$(arrival_time_update)" ];
+  then
+    echo -en "Arriving at: ${CYAN}$(arrival_time) $(arrival_meridian)${NC}"
+  else
+    echo -en "Arriving at: ${CYAN}$(arrival_time_update) $(arrival_meridian)${NC}"
+  fi
+  echo -e " To: ${BLUE}$destination${NC}"
+  if [ "$(is_late)" = 'true' ]
+  then
+    echo -e "\n${RED}This train is running late!${NC}"
+  fi
+}
+
+display
