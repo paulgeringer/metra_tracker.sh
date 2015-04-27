@@ -21,6 +21,10 @@ function strip_quotes() {
   sed "s/['\"]//g"
 }
 
+function strip_spaces() {
+  sed "s/\ //g"
+}
+
 function url() {
   echo "http://metrarail.com/content/metra/en/home/jcr:content/trainTracker.get_train_data.json?line=$line&origin=$departure&destination=$destination"
 }
@@ -63,6 +67,10 @@ function departure_time_update() {
   echo "$retrieved_json" | jq ".$train_number.scheduled_dpt_time_note" | strip_quotes
 }
 
+function departure_time_estimated() {
+  echo "$retrieved_json" | jq ".$train_number.estimated_dpt_time_note" | strip_quotes | strip_spaces
+}
+
 function arrival_meridian() {
   echo "$retrieved_json" | jq ".$train_number.schArriveInTheAM" | strip_quotes
 }
@@ -75,30 +83,49 @@ function arrival_time_update() {
   echo "$retrieved_json" | jq ".$train_number.scheduled_arv_time_note" | strip_quotes
 }
 
+function arrival_time_estimated() {
+  echo "$retrieved_json" | jq ".$train_number.estimated_arv_time_note" | strip_quotes | strip_spaces
+}
+
+function determine_schedule() {
+  if [ "$(departure_time)" = "$(departure_time_update)" ];
+  then
+    departure_time=$(departure_time)
+    departure_meridian=$(departure_meridian)
+  else
+    departure_time=$(departure_time_update)
+    departure_meridian=$(departure_meridian)
+  fi
+  if [ "$(arrival_time)" = "$(arrival_time_update)" ];
+  then
+    arrival_time=$(arrival_time)
+    arrival_meridian=$(arrival_meridian)
+  else
+    arrival_time=$(arrival_time_update)
+    arrival_meridian=$(arrival_meridian)
+  fi
+  if [ "$(is_late)" = "true" ]
+  then
+    echo -e "${RED}This train is running late:${NC}"
+    departure_time=$(departure_time_estimated)
+    departure_meridian=$(departure_meridian)
+    arrival_time=$(arrival_time_estimated)
+    arrival_meridian=$(arrival_meridian)
+  fi
+}
+
+
 function display() {
   check_for_errors
   trains=$(get_train_hash_numbers)
   for train in $trains
   do
     train_number=$train
-    if [ "$(is_late)" = "true" ]
-    then
-      echo -e "${RED}This train is running late:${NC}"
-    fi
-    if [ "$(departure_time)" = "$(departure_time_update)" ];
-    then
-      echo -en "Train number ${PURPLE}$(get_train_designations)${NC} is departing at ${CYAN}$(departure_time) $(departure_meridian)${NC}"
-    else
-      echo -en "Train number ${PURPLE}$(get_train_designations)${NC} is departing at ${CYAN}$(departure_time_update) $(departure_meridian)${NC}"
-    fi
+    determine_schedule
+    echo -en "Train number ${PURPLE}$(get_train_designations)${NC} is departing at ${CYAN}$departure_time $departure_meridian${NC}"
     echo -en " is leaving from ${GREEN}$departure${NC} "
-    if [ "$(arrival_time)" = "$(arrival_time_update)" ];
-    then
-      echo -en "and is arriving at ${CYAN}$(arrival_time) $(arrival_meridian)${NC}"
-    else
-      echo -en "and is arriving at ${CYAN}$(arrival_time_update) $(arrival_meridian)${NC}"
-    fi
-    echo -e " and going to ${BLUE}$destination${NC}"
+    echo -en "and is arriving at ${CYAN}$arrival_time $arrival_meridian${NC}"
+    echo -e " and is going to ${BLUE}$destination${NC}"
   done
   exit 0
 }
