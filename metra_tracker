@@ -7,12 +7,6 @@ RED='\033[1;31m'
 PURPLE='\033[0;35m'
 NC='\033[0m'
 
-if [ $# -lt 3 ]
-then
-  echo -e "${RED}You need to specify the train line, departure station, and destination station!${NC}"
-  exit 1
-fi
-
 line=$1
 departure=$2
 destination=$3
@@ -114,7 +108,6 @@ function determine_schedule() {
   fi
 }
 
-
 function display() {
   check_for_errors
   trains=$(get_train_hash_numbers)
@@ -130,4 +123,17 @@ function display() {
   exit 0
 }
 
-display
+
+case $0 in
+*metra_tracker_test*)
+  :
+  ;;
+*)
+  if [ $# -lt 3 ]
+  then
+    echo -e "${RED}You need to specify the train line, departure station, and destination station!${NC}"
+    exit 1
+  fi
+  display
+  ;;
+esac
