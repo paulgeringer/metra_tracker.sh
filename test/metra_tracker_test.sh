@@ -49,5 +49,19 @@ function test_error_check() {
   assert [ "$(echo "$error_string" | strip_color)" = "$(red_error)" ]
 }
 
+function test_strip_quotes() {
+  string="'q'uo\"t'e\"s"
+  stripped_string=$(echo "$string" | strip_quotes)
+  assert [ "$stripped_string" = "quotes" ]
+}
+
+function test_strip_spaces() {
+  string="s pa   c es  "
+  stripped_string=$(echo "$string" | strip_spaces)
+  assert [ "$stripped_string" = "spaces" ]
+}
+
 test_train_order
 test_error_check
+test_strip_quotes
+test_strip_spaces
