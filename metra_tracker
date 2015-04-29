@@ -51,7 +51,6 @@ function get_json() {
 
 retrieved_json=$(get_json)
 retrieved_html=$(get_html)
-retrieved_html=$(cat test/service_alerts.html)
 
 function check_for_alerts() {
   link_text=$(echo "$retrieved_html" | pup '.delay text{}' | tr -d '\n' | sed 's/^\ *//g')
