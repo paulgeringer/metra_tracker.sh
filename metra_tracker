@@ -54,7 +54,7 @@ retrieved_html=$(get_html)
 
 function check_for_alerts() {
   link_text=$(echo "$retrieved_html" | pup '.delay text{}' | tr -d '\n' | sed 's/^\ *//g')
-  detail_text=$(echo "$retrieved_html" | pup '.delayDetails p text{}' | fmt -n -w 100)
+  detail_text=$(echo "$retrieved_html" | pup '.delayDetails p text{}' | fmt -w 100)
   if [ ! -z "$link_text" ] || [ ! -z "$detail_text" ];
   then
     echo -e "${RED}Metra posted an Important Message regarding your train line:${NC}"
