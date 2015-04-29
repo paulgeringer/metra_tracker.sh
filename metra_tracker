@@ -11,6 +11,17 @@ line=$1
 departure=$2
 destination=$3
 
+function check_binaries() {
+  jq="$(which jq)"
+  pup="$(which pup)"
+  total="$jq $pup"
+  if [ -z "$jq" ] || [ -z "$pup" ];
+  then
+    echo "You need to install $total"
+    exit 1
+  fi
+}
+
 function strip_quotes() {
   sed "s/['\"]//g"
 }
@@ -19,15 +30,42 @@ function strip_spaces() {
   sed "s/\ //g"
 }
 
-function url() {
+function strip_newlines(){
+  sed "s/\n//g"
+}
+
+function train_url() {
   echo "http://metrarail.com/content/metra/en/home/jcr:content/trainTracker.get_train_data.json?line=$line&origin=$departure&destination=$destination"
 }
 
+function alerts_url() {
+  echo "http://metrarail.com/content/metra/en/home/jcr:content/trainTracker.serviceannouncements.html?trackerIndex=0&trainLineId=$line"
+}
+
+function get_html() {
+  curl -s "$(alerts_url)" | tr -d "\n"
+}
+
 function get_json() {
-  curl -s "$(url)" | tr -d "\n"
+  curl -s "$(train_url)" | tr -d "\n"
 }
 
 retrieved_json=$(get_json)
+retrieved_html=$(get_html)
+retrieved_html=$(cat test/service_alerts.html)
+
+function check_for_alerts() {
+  link_text=$(echo "$retrieved_html" | pup '.delay text{}' | tr -d '\n' | sed 's/^\ *//g')
+  detail_text=$(echo "$retrieved_html" | pup '.delayDetails p text{}' | fmt -n -w 100)
+  if [ ! -z "$link_text" ] || [ ! -z "$detail_text" ];
+  then
+    echo -e "${RED}Metra posted an Important Message regarding your train line:${NC}"
+    echo "$link_text"
+    echo
+    echo "$detail_text"
+    echo
+  fi
+}
 
 function check_for_errors() {
   if [ "$(echo "$retrieved_json" | jq ".train1" | jq "keys" | jq ".[0]" | strip_quotes)" = "error" ]
@@ -110,6 +148,7 @@ function determine_schedule() {
 
 function display() {
   check_for_errors
+  check_for_alerts
   trains=$(get_train_hash_numbers)
   for train in $trains
   do
@@ -123,6 +162,8 @@ function display() {
   exit 0
 }
 
+
+check_binaries
 
 case $0 in
 *metra_tracker_test*)

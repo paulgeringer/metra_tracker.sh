@@ -1,3 +1,5 @@
+###Installation###
+  This requires both `jq` and `pup`
 ###Usage###
  `metra_tracker <TRAIN_LINE> <DEPARTURE> <DESTINATION>`
 
