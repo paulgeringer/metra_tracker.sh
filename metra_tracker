@@ -14,10 +14,9 @@ destination=$3
 function check_binaries() {
   jq="$(which jq)"
   pup="$(which pup)"
-  total="$jq $pup"
   if [ -z "$jq" ] || [ -z "$pup" ];
   then
-    echo "You need to install $total"
+    echo "You need to install jq and/or pup."
     exit 1
   fi
 }
